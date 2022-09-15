@@ -1,0 +1,44 @@
+.filter {
+  margin-top: 20px;
+  display: flex;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 20px;
+  
+  &_ingredients{
+    @extend .dropdown;
+    background-color: $blue;
+    transition: background-color .5s ease;
+    &:hover{
+      background-color: darken($blue, 10);
+    }
+  }
+  &_device{
+    @extend .dropdown;
+    background-color: $green;
+    transition: background-color .5s ease;
+    &:hover{
+      background-color: darken($green, 10);
+    }
+  }
+  &_stencil{
+    @extend .dropdown;
+    background-color: $red;
+    transition: background-color .5s ease;
+    &:hover{
+      background-color: darken($red, 10);
+    }
+  }
+  &_content{
+    display: none;
+  }
+}

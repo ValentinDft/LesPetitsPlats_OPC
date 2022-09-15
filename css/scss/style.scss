@@ -1,0 +1,12 @@
+@import "variables.scss", "home.scss";
+@import "components/filter.scss";
+
+body{
+  margin: 0 10% 0 10%;
+}
+
+.container_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
