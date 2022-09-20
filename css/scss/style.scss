@@ -1,5 +1,5 @@
 @import "variables.scss", "home.scss";
-@import "components/filter.scss";
+@import "components/filter.scss", "components/card.scss";
 
 body{
   margin: 0 10% 0 10%;
@@ -9,4 +9,9 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.container_space{
+  display: flex;
+  justify-content: space-between;
 }
