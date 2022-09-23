@@ -5,11 +5,56 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Les petits plats</title>
 </head>
 <body>
   <header>
-    <img src="img/logo-les-petits-plats.png" alt="logo">
+    <div class="container_center">
+      <img src="img/logo-les-petits-plats.png" alt="logo" id="logo">
+    </div>
   </header>
+
+  <main>
+    <form id="search-bar">
+      <input type="text" id="search-bar_input" placeholder="Rechercher une recette">
+      <i class="fas fa-search"></i>
+    </form>
+
+    <section class="filter">
+
+      <div class="dropdown_ingredients">
+        <div class="dropdown_ingredients-select">
+          <span>Ingrédients</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="dropdown_ingredients-content">
+          <p>contenu</p>
+        </div>
+      </div>
+
+      <div class="dropdown_device">
+        <div class="dropdown_device-select">
+          <span>appareils</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="dropdown_device-content">
+          <p>contenu</p>
+        </div>
+      </div>
+      <div class="dropdown_stencil">
+        <div class="dropdown_stencil-select">
+          <span>Ustencils</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+        <div class="dropdown_stencil-content">
+          <p>contenu</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="list_repice"></section>
+  </main>
+  <script src="js/index.js" type="module"></script>
 </body>
 </html>

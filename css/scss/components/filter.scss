@@ -1,0 +1,70 @@
+.filter {
+  margin-top: 20px;
+  display: flex;
+}
+
+.dropdown {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  width: $dropdownWidth;
+  height: $dropdownHeight;
+  border-radius: $dropdownBorderRadius;
+  cursor: pointer;
+  
+  &_ingredients{
+    &-select{
+      @extend .dropdown;
+      background-color: $blue;
+      transition: background-color .5s ease;
+      margin-right: 20px;
+      &:hover{
+        background-color: darken($blue, 10);
+      }
+    }
+    &-content{
+      display: flex;
+      position: relative;
+      top: -3px;
+      color: white;
+      background-color: $blue;
+      width: $dropdownWidth;
+      border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
+      
+      p{
+        padding-left: 10px;
+      }
+    }
+    
+  }
+  &_device{
+    &-select{
+      @extend .dropdown;
+      background-color: $green;
+      transition: background-color .5s ease;
+      margin-right: 20px;
+      &:hover{
+        background-color: darken($green, 10);
+      }
+    }
+    &-content{
+      display: none;
+    }
+  }
+  &_stencil{
+    &-select{
+      @extend .dropdown;
+      background-color: $red;
+      transition: background-color .5s ease;
+      margin-right: 20px;
+      &:hover{
+        background-color: darken($red, 10);
+      }
+    }
+    &-content{
+      display: none;
+    }
+  }
+  
+}
