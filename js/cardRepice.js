@@ -25,13 +25,13 @@ export const cardRepice = (data) => {
   description.setAttribute('class', "card_repice-details-description");
   description.textContent = data.description;
 
-  const listeIngredient = document.createElement( 'ul' );
+  const listIngredientDisplay = document.createElement( 'ul' );
   let ingredient;
 
   data.ingredients.map((dataIngredient) => {
       ingredient = document.createElement('li');
       ingredient.textContent = `${dataIngredient.ingredient}: ${dataIngredient.quantity || dataIngredient.quantite || ''} ${dataIngredient.unit || ''}`
-      listeIngredient.appendChild(ingredient);
+      listIngredientDisplay.appendChild(ingredient);
   })
 
   // display
@@ -43,7 +43,7 @@ export const cardRepice = (data) => {
   time.insertBefore(iconTime, time.children[0]);
   details.appendChild(containerDescription);
   containerDescription.appendChild(containerIngredient);
-  containerIngredient.appendChild(listeIngredient);
+  containerIngredient.appendChild(listIngredientDisplay);
   containerDescription.appendChild(description);
   
   return (article);
