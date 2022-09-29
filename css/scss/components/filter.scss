@@ -24,17 +24,15 @@
       }
     }
     &-content{
-      display: flex;
+      display: none;
       position: relative;
       top: -3px;
       color: white;
       background-color: $blue;
       width: $dropdownWidth;
       border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
-      
-      p{
-        padding-left: 10px;
-      }
+      flex-direction: column;
+      padding-left: 10px;
     }
     
   }
@@ -50,6 +48,14 @@
     }
     &-content{
       display: none;
+      position: relative;
+      top: -3px;
+      color: white;
+      background-color: $green;
+      width: $dropdownWidth;
+      border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
+      flex-direction: column;
+      padding-left: 10px;
     }
   }
   &_stencil{
@@ -64,6 +70,14 @@
     }
     &-content{
       display: none;
+      position: relative;
+      top: -3px;
+      color: white;
+      background-color: $red;
+      width: $dropdownWidth;
+      border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
+      flex-direction: column;
+      padding-left: 10px;
     }
   }
   

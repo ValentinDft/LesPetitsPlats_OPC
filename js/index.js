@@ -1,5 +1,6 @@
 import { getRepice } from "./api/getRepice.js"
 import { cardRepice} from "./cardRepice.js"
+import { filter } from "./filter.js"
 
 let fetchData = async () => {
   const repice = await getRepice();
@@ -28,9 +29,10 @@ let displayRepice = (data) => {
     })
   })
 
-  let sans_doublons = [...new Set(arrayDevice)];
-  let oui = [...new Set(arrayIngredients)];
-  let non = [...new Set(arrayUstencils)];
+  let device = [...new Set(arrayDevice)];
+  let ingr = [...new Set(arrayIngredients)];
+  let stencils = [...new Set(arrayUstencils)];
+  filter(ingr, device, stencils);
 }
 
 let capitalizeString = (str) => {
