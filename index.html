@@ -25,11 +25,16 @@
 
       <div class="dropdown_ingredients">
         <div class="dropdown_ingredients-select dropdown-button" id="ingredients">
-          <span id="ingredients">Ingrédients</span>
-          <i class="fa-solid fa-chevron-down" id="ingredients"></i>
+          <div class="dropdown_no-clicked">
+            <span id="ingredients">Ingrédients</span>
+            <i class="fa-solid fa-chevron-down" id="ingredients"></i>
+          </div>
+          <div class="clicked">
+            <input type="text" placeholder="Rechercher un ingredient">
+          </div>
         </div>
-        <div class="dropdown_ingredients-content">
-          <input type="text" placeholder="Rechercher un ingredient">
+        <div class="dropdown_ingredients-content content">
+          
         </div>
       </div>
 
@@ -38,7 +43,7 @@
           <span id="device">appareils</span>
           <i class="fa-solid fa-chevron-down" id="device"></i>
         </div>
-        <div class="dropdown_device-content">
+        <div class="dropdown_device-content content">
           <input type="text" placeholder="Rechercher un appareil">
         </div>
       </div>
@@ -47,7 +52,7 @@
           <span id="stencil">Ustencils</span>
           <i class="fa-solid fa-chevron-down" id="stencil"></i>
         </div>
-        <div class="dropdown_stencil-content">
+        <div class="dropdown_stencil-content content">
           <input type="text" placeholder="Rechercher un ustencil">
         </div>
       </div>

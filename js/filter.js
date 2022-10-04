@@ -7,10 +7,19 @@ export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
       
       if (content.style.display === '') {
         content.style.display = "flex";
+        dropdown.setAttribute('class', `${dropdown.classList.value} dropdown_clicked`);
+        dropdown.children[0].style.display = 'none';
+        dropdown.children[1].style.display = 'flex';
       } else if (content.style.display === 'none') {
         content.style.display = "flex";
+        dropdown.setAttribute('class', `${dropdown.classList.value} dropdown_clicked`);
+        dropdown.children[0].style.display = 'none';
+        dropdown.children[1].style.display = 'flex';
       } else if (content.style.display === 'flex') {
         content.style.display = "none";
+        dropdown.setAttribute('class', `${dropdown.classList[0]} ${dropdown.classList[1]}`);
+        dropdown.children[0].style.display = 'flex';
+        dropdown.children[1].style.display = 'none';
       }
     })
   })
@@ -39,6 +48,7 @@ export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
   arrayIngredients.map((data) => {
     ingredient = document.createElement('li');
     ingredient.textContent = data;
+    ingredient.setAttribute('id', data);
     listIngredients.appendChild(ingredient);
   })
   arrayStencils.map((data) => {

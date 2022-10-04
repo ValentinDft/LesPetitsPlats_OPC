@@ -29,10 +29,25 @@
       top: -3px;
       color: white;
       background-color: $blue;
-      width: $dropdownWidth;
+      width: auto;
       border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
       flex-direction: column;
-      padding-left: 10px;
+      margin-right: 10px;
+      
+
+      ul{
+        list-style: none;
+        columns: 4;
+        padding: 0px 30px;
+      }
+      li{
+        padding: 6px 0px;
+        cursor: pointer;
+        font-size: 18px;
+        &:hover{
+          color: black;
+        }
+      }
     }
     
   }
@@ -52,10 +67,23 @@
       top: -3px;
       color: white;
       background-color: $green;
-      width: $dropdownWidth;
+      width: auto;
       border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
       flex-direction: column;
-      padding-left: 10px;
+      margin-right: 10px;
+
+      ul{
+        list-style: none;
+        padding: 0px 30px;
+      }
+      li{
+        padding: 6px 0px;
+        cursor: pointer;
+        font-size: 18px;
+        &:hover{
+          color: black;
+        }
+      }
     }
   }
   &_stencil{
@@ -74,11 +102,32 @@
       top: -3px;
       color: white;
       background-color: $red;
-      width: $dropdownWidth;
+      width: auto;
       border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
       flex-direction: column;
-      padding-left: 10px;
+      
+      ul{
+        list-style: none;
+        columns: 2;
+        padding: 0px 30px;
+      }
+      li{
+        padding: 6px 0px;
+        cursor: pointer;
+        font-size: 18px;
+        &:hover{
+          color: black;
+        }
+      }
     }
   }
-  
+}
+
+.dropdown_clicked{
+  width: auto;
+  margin-right: 10px;
+}
+
+.clicked{
+  display: none;
 }
