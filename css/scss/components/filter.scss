@@ -12,110 +12,108 @@
   height: $dropdownHeight;
   border-radius: $dropdownBorderRadius;
   cursor: pointer;
-  
-  &_ingredients{
-    &-select{
+
+  &_ingredients {
+    &-select {
       @extend .dropdown;
       background-color: $blue;
-      transition: background-color .5s ease;
+      transition: background-color 0.5s ease;
       margin-right: 20px;
-      &:hover{
+      &:hover {
         background-color: darken($blue, 10);
       }
     }
-    &-content{
+    &-content {
       display: none;
       position: relative;
       top: -3px;
       color: white;
       background-color: $blue;
       width: auto;
-      border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
+      border-radius: 0 0 $dropdownBorderRadius $dropdownBorderRadius;
       flex-direction: column;
       margin-right: 10px;
-      
 
-      ul{
+      ul {
         list-style: none;
         columns: 4;
         padding: 0px 30px;
       }
-      li{
+      li {
         padding: 6px 0px;
         cursor: pointer;
         font-size: 18px;
-        &:hover{
+        &:hover {
           color: black;
         }
       }
     }
-    
   }
-  &_device{
-    &-select{
+  &_device {
+    &-select {
       @extend .dropdown;
       background-color: $green;
-      transition: background-color .5s ease;
+      transition: background-color 0.5s ease;
       margin-right: 20px;
-      &:hover{
+      &:hover {
         background-color: darken($green, 10);
       }
     }
-    &-content{
+    &-content {
       display: none;
       position: relative;
       top: -3px;
       color: white;
       background-color: $green;
       width: auto;
-      border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
+      border-radius: 0 0 $dropdownBorderRadius $dropdownBorderRadius;
       flex-direction: column;
       margin-right: 10px;
 
-      ul{
+      ul {
         list-style: none;
         padding: 0px 30px;
       }
-      li{
+      li {
         padding: 6px 0px;
         cursor: pointer;
         font-size: 18px;
-        &:hover{
+        &:hover {
           color: black;
         }
       }
     }
   }
-  &_stencil{
-    &-select{
+  &_stencil {
+    &-select {
       @extend .dropdown;
       background-color: $red;
-      transition: background-color .5s ease;
+      transition: background-color 0.5s ease;
       margin-right: 20px;
-      &:hover{
+      &:hover {
         background-color: darken($red, 10);
       }
     }
-    &-content{
+    &-content {
       display: none;
       position: relative;
       top: -3px;
       color: white;
       background-color: $red;
       width: auto;
-      border-radius: 0 0  $dropdownBorderRadius  $dropdownBorderRadius;
+      border-radius: 0 0 $dropdownBorderRadius $dropdownBorderRadius;
       flex-direction: column;
-      
-      ul{
+
+      ul {
         list-style: none;
         columns: 2;
         padding: 0px 30px;
       }
-      li{
+      li {
         padding: 6px 0px;
         cursor: pointer;
         font-size: 18px;
-        &:hover{
+        &:hover {
           color: black;
         }
       }
@@ -123,11 +121,38 @@
   }
 }
 
-.dropdown_clicked{
-  width: auto;
-  margin-right: 10px;
+.dropdown_clicked {
+  display: none;
+  align-items: center;
+  width: 100%;
+  padding-left: 30px;
 }
 
-.clicked{
-  display: none;
+.input-search-filter {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  width: 50%;
+  height: 30px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.6);
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+  }
+}
+
+.dropdown_close {
+  width: 50%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.dropdown_no_clicked {
+  width: 100%;
+  height: 50px;
+
+  @extend .dropdown;
 }

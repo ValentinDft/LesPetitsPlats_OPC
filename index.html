@@ -1,65 +1,100 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <title>Les petits plats</title>
-</head>
-<body>
-  <header>
-    <div class="container_center">
-      <img src="img/logo-les-petits-plats.png" alt="logo" id="logo">
-    </div>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Les petits plats</title>
+  </head>
+  <body>
+    <header>
+      <div class="container_center">
+        <img src="img/logo-les-petits-plats.png" alt="logo" id="logo" />
+      </div>
+    </header>
 
-  <main>
-    <form id="search-bar">
-      <input type="text" id="search-bar_input" placeholder="Rechercher une recette">
-      <i class="fas fa-search"></i>
-    </form>
+    <main>
+      <form id="search-bar">
+        <input
+          type="text"
+          id="search-bar_input"
+          placeholder="Rechercher une recette"
+        />
+        <i class="fas fa-search"></i>
+      </form>
 
-    <section class="filter">
-
-      <div class="dropdown_ingredients">
-        <div class="dropdown_ingredients-select dropdown-button" id="ingredients">
-          <div class="dropdown_no-clicked">
-            <span id="ingredients">Ingrédients</span>
-            <i class="fa-solid fa-chevron-down" id="ingredients"></i>
+      <section class="filter">
+        <div class="dropdown_ingredients">
+          <div class="dropdown_ingredients-select">
+            <div class="dropdown_no_clicked" id="ingredients">
+              <span id="ingredients">Ingrédients</span>
+              <i class="fa-solid fa-chevron-down" id="ingredients"></i>
+            </div>
+            <div class="dropdown_clicked" id="ingredients">
+              <input
+                type="text"
+                placeholder="Rechercher un ingredient"
+                class="input-search-filter"
+              />
+              <div class="dropdown_close" id="ingredients">
+                <i class="fa-solid fa-chevron-up" id="ingredients"></i>
+              </div>
+            </div>
           </div>
-          <div class="clicked">
-            <input type="text" placeholder="Rechercher un ingredient">
+          <div class="dropdown_ingredients-content content"></div>
+        </div>
+
+        <div class="dropdown_device">
+          <div class="dropdown_device-select dropdown-button" id="device">
+            <div class="dropdown_no_clicked" id="device">
+              <span id="device">appareils</span>
+              <i class="fa-solid fa-chevron-down" id="device"></i>
+            </div>
+            <div class="dropdown_clicked" id="device">
+              <input
+                type="text"
+                placeholder="Rechercher un appareils"
+                class="input-search-filter"
+              />
+              <div class="dropdown_close" id="device">
+                <i class="fa-solid fa-chevron-up" id="device"></i>
+              </div>
+            </div>
           </div>
+          <div class="dropdown_device-content content"></div>
         </div>
-        <div class="dropdown_ingredients-content content">
-          
-        </div>
-      </div>
 
-      <div class="dropdown_device">
-        <div class="dropdown_device-select dropdown-button" id="device">
-          <span id="device">appareils</span>
-          <i class="fa-solid fa-chevron-down" id="device"></i>
+        <div class="dropdown_stencil">
+          <div class="dropdown_stencil-select dropdown-button" id="stencil">
+            <div class="dropdown_no_clicked" id="stencil">
+              <span id="stencil">Ustencils</span>
+              <i class="fa-solid fa-chevron-down" id="stencil"></i>
+            </div>
+            <div class="dropdown_clicked" id="stencil">
+              <input
+                type="text"
+                placeholder="Rechercher un Ustencils"
+                class="input-search-filter"
+              />
+              <div class="dropdown_close" id="stencil">
+                <i class="fa-solid fa-chevron-up" id="stencil"></i>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown_stencil-content content"></div>
         </div>
-        <div class="dropdown_device-content content">
-          <input type="text" placeholder="Rechercher un appareil">
-        </div>
-      </div>
-      <div class="dropdown_stencil">
-        <div class="dropdown_stencil-select dropdown-button" id="stencil">
-          <span id="stencil">Ustencils</span>
-          <i class="fa-solid fa-chevron-down" id="stencil"></i>
-        </div>
-        <div class="dropdown_stencil-content content">
-          <input type="text" placeholder="Rechercher un ustencil">
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="list_repice"></section>
-  </main>
-  <script src="js/index.js" type="module"></script>
-</body>
+      <section id="list_repice"></section>
+    </main>
+    <script src="js/index.js" type="module"></script>
+  </body>
 </html>

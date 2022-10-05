@@ -1,63 +1,122 @@
 export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
-  const select = [...document.querySelectorAll('.dropdown-button')];
+  const dropdownDefault = [
+    ...document.querySelectorAll(".dropdown_no_clicked"),
+  ];
+  const clicked = [...document.querySelectorAll(".dropdown_clicked")];
+  const close = [...document.querySelectorAll(".dropdown_close")];
 
-  select.map((dropdown) => {
+  dropdownDefault.map((dropdown) => {
     dropdown.addEventListener("click", (event) => {
-      const content = document.querySelector(`.dropdown_${event.target.id}-content`);
-      
-      if (content.style.display === '') {
+      const content = document.querySelector(
+        `.dropdown_${event.target.id}-content`
+      );
+
+      if (dropdown.style.display === "") {
+        dropdown.style.display = "none";
         content.style.display = "flex";
-        dropdown.setAttribute('class', `${dropdown.classList.value} dropdown_clicked`);
-        dropdown.children[0].style.display = 'none';
-        dropdown.children[1].style.display = 'flex';
-      } else if (content.style.display === 'none') {
+        clicked.map((drop) => {
+          if (drop.id === event.target.id) {
+            drop.style.display = "flex";
+          }
+        });
+
+        dropdown.parentElement.style.width = "auto";
+        dropdown.parentElement.style.marginRight = "10px";
+      } else if (dropdown.style.display === "flex") {
+        dropdown.style.display = "none";
         content.style.display = "flex";
-        dropdown.setAttribute('class', `${dropdown.classList.value} dropdown_clicked`);
-        dropdown.children[0].style.display = 'none';
-        dropdown.children[1].style.display = 'flex';
-      } else if (content.style.display === 'flex') {
-        content.style.display = "none";
-        dropdown.setAttribute('class', `${dropdown.classList[0]} ${dropdown.classList[1]}`);
-        dropdown.children[0].style.display = 'flex';
-        dropdown.children[1].style.display = 'none';
+        clicked.map((drop) => {
+          if (drop.id === event.target.id) {
+            drop.style.display = "flex";
+          }
+        });
+
+        dropdown.parentElement.style.width = "auto";
+        dropdown.parentElement.style.marginRight = "10px";
       }
-    })
-  })
+    });
+  });
 
-  const contentDropdownIngredients = document.querySelector(`.dropdown_ingredients-content`);
-  const contentDropdownDevice = document.querySelector(`.dropdown_device-content`);
-  const contentDropdownStencils = document.querySelector(`.dropdown_stencil-content`);
+  close.map((dropdown) => {
+    dropdown.addEventListener("click", (event) => {
+      const content = document.querySelector(
+        `.dropdown_${event.target.id}-content`
+      );
 
-  const listIngredients = document.createElement('ul');
-  listIngredients.setAttribute('class', 'liste_items');
+      if (dropdown.style.display === "") {
+        clicked.map((drop) => {
+          if (drop.id === event.target.id) {
+            drop.style.display = "none";
+          }
+        });
+        dropdownDefault.map((drop) => {
+          if (drop.id === event.target.id) {
+            drop.style.display = "flex";
+          }
+        });
+        content.style.display = "none";
 
-  const listDevices = document.createElement('ul');
-  listDevices.setAttribute('class', 'liste_items');
+        dropdown.parentElement.parentElement.style.width = "150px";
+        dropdown.parentElement.style.marginRight = "30px";
+      } else if (dropdown.style.display === "flex") {
+        clicked.map((drop) => {
+          if (drop.id === event.target.id) {
+            drop.style.display = "none";
+          }
+        });
+        dropdownDefault.map((drop) => {
+          if (drop.id === event.target.id) {
+            drop.style.display = "flex";
+          }
+        });
+        content.style.display = "none";
 
-  const listStencils = document.createElement('ul');
-  listStencils.setAttribute('class', 'liste_items');
-  
+        dropdown.parentElement.parentElement.style.width = "150px";
+        dropdown.parentElement.style.marginRight = "30px";
+      }
+    });
+  });
+
+  const contentDropdownIngredients = document.querySelector(
+    `.dropdown_ingredients-content`
+  );
+  const contentDropdownDevice = document.querySelector(
+    `.dropdown_device-content`
+  );
+  const contentDropdownStencils = document.querySelector(
+    `.dropdown_stencil-content`
+  );
+
+  const listIngredients = document.createElement("ul");
+  listIngredients.setAttribute("class", "liste_items");
+
+  const listDevices = document.createElement("ul");
+  listDevices.setAttribute("class", "liste_items");
+
+  const listStencils = document.createElement("ul");
+  listStencils.setAttribute("class", "liste_items");
+
   let ingredient;
   let device;
   let stencil;
   arrayDevices.map((data) => {
-    device = document.createElement('li');
+    device = document.createElement("li");
     device.textContent = data;
     listDevices.appendChild(device);
-  })
+  });
   arrayIngredients.map((data) => {
-    ingredient = document.createElement('li');
+    ingredient = document.createElement("li");
     ingredient.textContent = data;
-    ingredient.setAttribute('id', data);
+    ingredient.setAttribute("id", data);
     listIngredients.appendChild(ingredient);
-  })
+  });
   arrayStencils.map((data) => {
-    stencil = document.createElement('li');
+    stencil = document.createElement("li");
     stencil.textContent = data;
     listStencils.appendChild(stencil);
-  })
+  });
 
   contentDropdownIngredients.appendChild(listIngredients);
   contentDropdownDevice.appendChild(listDevices);
   contentDropdownStencils.appendChild(listStencils);
-}
+};
