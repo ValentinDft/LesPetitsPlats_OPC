@@ -1,20 +1,6 @@
 let itemInList;
 
-export const filterSearchWithFilterMethod = (list, arrayData, inputValue) => {
-  list.replaceChildren();
-  const filter = arrayData.filter((data) => {
-    return data.toLowerCase().includes(inputValue.toLowerCase());
-  });
-
-  filter.sort().map((data) => {
-    itemInList = document.createElement("li");
-    itemInList.textContent = data;
-    itemInList.setAttribute("id", data);
-    list.appendChild(itemInList);
-  });
-};
-
-export const filterSearchWithForOfMethod = (list, arrayData, inputValue) => {
+export const filterSearch = (list, arrayData, inputValue) => {
   list.replaceChildren();
   let itemsFilter = [];
 

@@ -1,7 +1,4 @@
-import {
-  filterSearchWithFilterMethod,
-  filterSearchWithForOfMethod,
-} from "./search/filterSearch.js";
+import { filterSearch } from "./search/filterSearch.js";
 
 export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
   const dropdownDefault = [
@@ -113,7 +110,7 @@ export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
   // Search on filter device
   const filterDevice = document.getElementById("filter-device");
   const inputHandlerDevice = function (e) {
-    filterSearchWithForOfMethod(listDevices, arrayDevices, e.target.value);
+    filterSearch(listDevices, arrayDevices, e.target.value);
   };
   filterDevice.addEventListener("input", inputHandlerDevice);
 
@@ -127,11 +124,7 @@ export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
   // Search on filter ingredient
   const filterIngredient = document.getElementById("filter-ingredient");
   const inputHandlerIngredient = function (e) {
-    filterSearchWithFilterMethod(
-      listIngredients,
-      arrayIngredients,
-      e.target.value
-    );
+    filterSearch(listIngredients, arrayIngredients, e.target.value);
   };
   filterIngredient.addEventListener("input", inputHandlerIngredient);
 
@@ -144,7 +137,7 @@ export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
   // Search on filter stencils
   const filterStencils = document.getElementById("filter-stencils");
   const inputHandlerStencils = function (e) {
-    filterSearchWithFilterMethod(listStencils, arrayStencils, e.target.value);
+    filterSearch(listStencils, arrayStencils, e.target.value);
   };
   filterStencils.addEventListener("input", inputHandlerStencils);
 
