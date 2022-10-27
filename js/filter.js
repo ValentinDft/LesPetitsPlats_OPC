@@ -1,3 +1,8 @@
+import {
+  filterSearchWithFilterMethod,
+  filterSearchWithForOfMethod,
+} from "./search/filterSearch.js";
+
 export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
   const dropdownDefault = [
     ...document.querySelectorAll(".dropdown_no_clicked"),
@@ -99,22 +104,49 @@ export const filter = (arrayIngredients, arrayDevices, arrayStencils) => {
   let ingredient;
   let device;
   let stencil;
-  arrayDevices.map((data) => {
+  // Display filter device default value
+  arrayDevices.sort().map((data) => {
     device = document.createElement("li");
     device.textContent = data;
     listDevices.appendChild(device);
   });
-  arrayIngredients.map((data) => {
+  // Search on filter device
+  const filterDevice = document.getElementById("filter-device");
+  const inputHandlerDevice = function (e) {
+    filterSearchWithForOfMethod(listDevices, arrayDevices, e.target.value);
+  };
+  filterDevice.addEventListener("input", inputHandlerDevice);
+
+  // Display filter ingredient default value
+  arrayIngredients.sort().map((data) => {
     ingredient = document.createElement("li");
     ingredient.textContent = data;
     ingredient.setAttribute("id", data);
     listIngredients.appendChild(ingredient);
   });
-  arrayStencils.map((data) => {
+  // Search on filter ingredient
+  const filterIngredient = document.getElementById("filter-ingredient");
+  const inputHandlerIngredient = function (e) {
+    filterSearchWithFilterMethod(
+      listIngredients,
+      arrayIngredients,
+      e.target.value
+    );
+  };
+  filterIngredient.addEventListener("input", inputHandlerIngredient);
+
+  // Display filter stencil default value
+  arrayStencils.sort().map((data) => {
     stencil = document.createElement("li");
     stencil.textContent = data;
     listStencils.appendChild(stencil);
   });
+  // Search on filter stencils
+  const filterStencils = document.getElementById("filter-stencils");
+  const inputHandlerStencils = function (e) {
+    filterSearchWithFilterMethod(listStencils, arrayStencils, e.target.value);
+  };
+  filterStencils.addEventListener("input", inputHandlerStencils);
 
   contentDropdownIngredients.appendChild(listIngredients);
   contentDropdownDevice.appendChild(listDevices);
