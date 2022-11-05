@@ -1,6 +1,4 @@
-let itemInList;
-
-export const filterSearch = (list, arrayData, inputValue) => {
+export const filterSearch = (list, arrayData, inputValue, arrayRepice) => {
   list.replaceChildren();
   let itemsFilter = [];
 
@@ -10,10 +8,5 @@ export const filterSearch = (list, arrayData, inputValue) => {
     }
   }
 
-  for (const item of itemsFilter) {
-    itemInList = document.createElement("li");
-    itemInList.textContent = item;
-    itemInList.setAttribute("id", item);
-    list.appendChild(itemInList);
-  }
+  return itemsFilter;
 };
