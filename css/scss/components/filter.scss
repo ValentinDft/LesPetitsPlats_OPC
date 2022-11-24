@@ -156,3 +156,15 @@
 
   @extend .dropdown;
 }
+
+.list-tag {
+  margin-top: 20px;
+}
+
+.tag {
+  padding: 6px;
+  border: 2px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+}

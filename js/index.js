@@ -5,7 +5,7 @@ import { searchRepice } from "./search/repiceSearch.js";
 
 let defaultRepice = [];
 
-let fetchData = async () => {
+const fetchData = async () => {
   const repice = await getRepice();
   defaultRepice = repice;
   displayRepice(defaultRepice);
@@ -13,23 +13,30 @@ let fetchData = async () => {
   searchBar(defaultRepice);
 };
 
-let displayRepice = (arrayRepice) => {
+export const displayRepice = (arrayRepice) => {
   const repiceSection = document.querySelector("#list_repice");
+  const msgErrorRepice = document.querySelector(".msg-error-repice");
+  repiceSection.replaceChildren();
   let arrayIngredients = [];
   let arrayDevice = [];
   let arrayUstencils = [];
 
-  for (const repice of arrayRepice) {
-    const card = cardRepice(repice);
-    repiceSection.appendChild(card);
-    // Array for filter
-    arrayDevice.push(repice.appliance);
-    repice.ingredients.map((ingredients) => {
-      arrayIngredients.push(capitalizeString(ingredients.ingredient));
-    });
-    repice.ustensils.map((ustensils) => {
-      arrayUstencils.push(capitalizeString(ustensils));
-    });
+  if (arrayRepice.length === 0) {
+    msgErrorRepice.style.display = "flex";
+  } else {
+    msgErrorRepice.style.display = "none";
+    for (const repice of arrayRepice) {
+      const card = cardRepice(repice);
+      repiceSection.appendChild(card);
+      // Array for filter
+      arrayDevice.push(repice.appliance);
+      for (const ingredients of repice.ingredients) {
+        arrayIngredients.push(capitalizeString(ingredients.ingredient));
+      }
+      for (const ustensils of repice.ustensils) {
+        arrayUstencils.push(capitalizeString(ustensils));
+      }
+    }
   }
 
   let device = [...new Set(arrayDevice)];
@@ -44,7 +51,7 @@ let capitalizeString = (str) => {
   return str.charAt(0).toUpperCase() + lower.slice(1);
 };
 
-let searchBar = (data) => {
+export const searchBar = (data) => {
   const inputSearch = document.getElementById("search-bar_input");
   let newArrayRepice = [];
   const inputHandlerRepice = function (e) {

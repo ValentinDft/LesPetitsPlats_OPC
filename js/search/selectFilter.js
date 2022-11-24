@@ -1,30 +1,10 @@
-import { cardRepice } from "../cardRepice.js";
+import { displayTag } from "../tag.js";
 let itemSelect;
+export let arrayTag = [];
 
-export const selectFilter = (element, arrayData) => {
-  let newArrayRepice = [];
-  // if (itemSelect) {
-  //   if (itemSelect.target.id !== element.target.id) {
-  //     itemSelect.target.style.color = "white";
-  //   }
-  // }
+export const selectFilter = async (element, arrayRepice, category) => {
+  arrayTag.push({ id: element.target.id, category });
   itemSelect = element;
-  element.target.style.color = "black";
 
-  // arrayRepice.map((repice) => {
-  //   if (repice.appliance === element.target.id) {
-  //     newArrayRepice.push(repice);
-  //   }
-  // });
-
-  // displayRecipe(newArrayRepice);
+  displayTag(arrayRepice);
 };
-
-// const displayRecipe = (arrayRepice) => {
-//   const repiceSection = document.querySelector("#list_repice");
-//   repiceSection.replaceChildren();
-//   arrayRepice.map((repice) => {
-//     const card = cardRepice(repice);
-//     repiceSection.appendChild(card);
-//   });
-// };
