@@ -1,12 +1,9 @@
-export const filterSearch = (list, arrayData, inputValue, arrayRepice) => {
+export const filterSearch = (list, arrayData, inputValue) => {
   list.replaceChildren();
-  let itemsFilter = [];
 
-  for (const item of arrayData) {
-    if (item.toLowerCase().includes(inputValue.toLowerCase())) {
-      itemsFilter.push(item);
-    }
-  }
+  const filter = arrayData.filter((item) => {
+    return item.toLowerCase().includes(inputValue.toLowerCase());
+  });
 
-  return itemsFilter;
+  return filter;
 };

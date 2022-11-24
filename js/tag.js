@@ -9,37 +9,37 @@ export const displayTag = (arrayRepice, fromSearch) => {
   let filterArrayRepice = [];
   listTag.replaceChildren();
 
-  for (const [index, tag] of arrayTag.entries()) {
+  arrayTag.map((tag, index) => {
     if (index === 0) {
-      for (const repice of arrayRepice) {
+      arrayRepice.map((repice) => {
         if (tag.category === 'appliance' && repice.appliance === tag.id) {
           newArrayRepice.push(repice);
         } else if (tag.category === 'ustencils' && repice.ustensils.includes(tag.id.toLowerCase())) {
           newArrayRepice.push(repice);
         } else if (tag.category === 'ingredients') {
-          for (const ingredient of repice.ingredients) {
+          repice.ingredients.map((ingredient) => {
             if (ingredient.ingredient === tag.id) {
               newArrayRepice.push(repice);
             }
-          }
+          });
         }
-      }
+      });
     } else {
       filterArrayRepice = newArrayRepice;
       newArrayRepice = [];
-      for (const repice of filterArrayRepice) {
+      filterArrayRepice.map((repice) => {
         if (tag.category === 'appliance' && repice.appliance === tag.id) {
           newArrayRepice.push(repice);
         } else if (tag.category === 'ustencils' && repice.ustensils.includes(tag.id.toLowerCase())) {
           newArrayRepice.push(repice);
         } else if (tag.category === 'ingredients') {
-          for (const ingredient of repice.ingredients) {
+          repice.ingredients.map((ingredient) => {
             if (ingredient.ingredient === tag.id) {
               newArrayRepice.push(repice);
             }
-          }
+          });
         }
-      }
+      });
     }
 
     item = document.createElement('span');
@@ -72,7 +72,7 @@ export const displayTag = (arrayRepice, fromSearch) => {
       }
     };
     item.addEventListener('click', clickTag);
-  }
+  });
 
   !fromSearch && searchBar(newArrayRepice);
   displayRepice([...new Set(newArrayRepice)]);

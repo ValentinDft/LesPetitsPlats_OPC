@@ -25,18 +25,19 @@ export const displayRepice = (arrayRepice) => {
     msgErrorRepice.style.display = 'flex';
   } else {
     msgErrorRepice.style.display = 'none';
-    for (const repice of arrayRepice) {
+
+    arrayRepice.map((repice) => {
       const card = cardRepice(repice);
       repiceSection.appendChild(card);
       // Array for filter
       arrayDevice.push(repice.appliance);
-      for (const ingredients of repice.ingredients) {
+      repice.ingredients.map((ingredients) => {
         arrayIngredients.push(capitalizeString(ingredients.ingredient));
-      }
-      for (const ustensils of repice.ustensils) {
+      });
+      repice.ustensils.map((ustensils) => {
         arrayUstencils.push(capitalizeString(ustensils));
-      }
-    }
+      });
+    });
   }
 
   let device = [...new Set(arrayDevice)];

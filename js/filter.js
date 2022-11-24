@@ -13,7 +13,7 @@ export const filter = (
   const clicked = [...document.querySelectorAll(".dropdown_clicked")];
   const close = [...document.querySelectorAll(".dropdown_close")];
 
-  for (const dropdown of dropdownDefault) {
+  dropdownDefault.map((dropdown) => {
     dropdown.addEventListener("click", (event) => {
       const content = document.querySelector(
         `.dropdown_${event.target.dataset.parent}-content`
@@ -22,11 +22,12 @@ export const filter = (
       if (dropdown.style.display === "") {
         dropdown.style.display = "none";
         content.style.display = "flex";
-        for (const drop of clicked) {
+        clicked.map((drop) => {
           if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
-        }
+        });
+
         dropdown.parentElement.style.width = "auto";
         if (dropdown.parentElement.className.includes("stencil")) {
           dropdown.parentElement.style.marginRight = "0px";
@@ -36,11 +37,12 @@ export const filter = (
       } else if (dropdown.style.display === "flex") {
         dropdown.style.display = "none";
         content.style.display = "flex";
-        for (const drop of clicked) {
+        clicked.map((drop) => {
           if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
-        }
+        });
+
         dropdown.parentElement.style.width = "auto";
         if (dropdown.parentElement.className.includes("stencil")) {
           dropdown.parentElement.style.marginRight = "0px";
@@ -49,46 +51,46 @@ export const filter = (
         }
       }
     });
-  }
+  });
 
-  for (const dropdown of close) {
+  close.map((dropdown) => {
     dropdown.addEventListener("click", (event) => {
       const content = document.querySelector(
         `.dropdown_${event.target.dataset.parent}-content`
       );
 
       if (dropdown.style.display === "") {
-        for (const drop of clicked) {
+        clicked.map((drop) => {
           if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "none";
           }
-        }
-        for (const drop of dropdownDefault) {
+        });
+        dropdownDefault.map((drop) => {
           if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
-        }
+        });
         content.style.display = "none";
         dropdown.parentElement.parentElement.style.width = "150px";
         dropdown.parentElement.style.marginRight = "30px";
       } else if (dropdown.style.display === "flex") {
-        for (const drop of clicked) {
+        clicked.map((drop) => {
           if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "none";
           }
-        }
-        for (const drop of dropdownDefault) {
+        });
+        dropdownDefault.map((drop) => {
           if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
-        }
+        });
         content.style.display = "none";
 
         dropdown.parentElement.parentElement.style.width = "150px";
         dropdown.parentElement.style.marginRight = "30px";
       }
     });
-  }
+  });
 
   const contentDropdownIngredients = document.querySelector(
     `.dropdown_ingredients-content`
@@ -193,7 +195,7 @@ let displayFilter = (arrayData, list, arrayRepice, category) => {
   if (arrayData.length === 0) {
     list.appendChild(msgErrorFilter);
   } else {
-    for (const data of arrayData) {
+    arrayData.map((data) => {
       item = document.createElement("li");
       item.textContent = data;
       item.setAttribute("id", data);
@@ -208,6 +210,6 @@ let displayFilter = (arrayData, list, arrayRepice, category) => {
         selectFilter(e, arrayRepice, category);
       };
       item.addEventListener("click", clickItemsFilter);
-    }
+    });
   }
 };
