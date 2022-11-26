@@ -1,5 +1,5 @@
 import { filterSearch } from "./search/filterSearch.js";
-import { selectFilter } from "./search/selectFilter.js";
+import { arrayTag, selectFilter } from "./search/selectFilter.js";
 
 export const filter = (
   arrayIngredients,
@@ -16,31 +16,37 @@ export const filter = (
   for (const dropdown of dropdownDefault) {
     dropdown.addEventListener("click", (event) => {
       const content = document.querySelector(
-        `.dropdown_${event.target.id}-content`
+        `.dropdown_${event.target.dataset.parent}-content`
       );
 
       if (dropdown.style.display === "") {
         dropdown.style.display = "none";
         content.style.display = "flex";
         for (const drop of clicked) {
-          if (drop.id === event.target.id) {
+          if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
         }
-
         dropdown.parentElement.style.width = "auto";
-        dropdown.parentElement.style.marginRight = "10px";
+        if (dropdown.parentElement.className.includes("stencil")) {
+          dropdown.parentElement.style.marginRight = "0px";
+        } else {
+          dropdown.parentElement.style.marginRight = "10px";
+        }
       } else if (dropdown.style.display === "flex") {
         dropdown.style.display = "none";
         content.style.display = "flex";
         for (const drop of clicked) {
-          if (drop.id === event.target.id) {
+          if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
         }
-
         dropdown.parentElement.style.width = "auto";
-        dropdown.parentElement.style.marginRight = "10px";
+        if (dropdown.parentElement.className.includes("stencil")) {
+          dropdown.parentElement.style.marginRight = "0px";
+        } else {
+          dropdown.parentElement.style.marginRight = "10px";
+        }
       }
     });
   }
@@ -48,32 +54,31 @@ export const filter = (
   for (const dropdown of close) {
     dropdown.addEventListener("click", (event) => {
       const content = document.querySelector(
-        `.dropdown_${event.target.id}-content`
+        `.dropdown_${event.target.dataset.parent}-content`
       );
 
       if (dropdown.style.display === "") {
         for (const drop of clicked) {
-          if (drop.id === event.target.id) {
+          if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "none";
           }
         }
         for (const drop of dropdownDefault) {
-          if (drop.id === event.target.id) {
+          if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
         }
         content.style.display = "none";
-
         dropdown.parentElement.parentElement.style.width = "150px";
         dropdown.parentElement.style.marginRight = "30px";
       } else if (dropdown.style.display === "flex") {
         for (const drop of clicked) {
-          if (drop.id === event.target.id) {
+          if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "none";
           }
         }
         for (const drop of dropdownDefault) {
-          if (drop.id === event.target.id) {
+          if (drop.dataset.parent === event.target.dataset.parent) {
             drop.style.display = "flex";
           }
         }
@@ -182,15 +187,27 @@ export const filter = (
 
 let displayFilter = (arrayData, list, arrayRepice, category) => {
   let item;
+  let msgErrorFilter = document.createElement("p");
+  msgErrorFilter.textContent = "Aucun résultat";
 
-  for (const data of arrayData) {
-    item = document.createElement("li");
-    item.textContent = data;
-    item.setAttribute("id", data);
-    list.appendChild(item);
-    const clickItemsFilter = (e) => {
-      selectFilter(e, arrayRepice, category);
-    };
-    item.addEventListener("click", clickItemsFilter);
+  if (arrayData.length === 0) {
+    list.appendChild(msgErrorFilter);
+  } else {
+    for (const data of arrayData) {
+      item = document.createElement("li");
+      item.textContent = data;
+      item.setAttribute("id", data);
+      for (const tag of arrayTag) {
+        if (data === tag.id) {
+          item.setAttribute("class", "item_disabled");
+        }
+      }
+
+      list.appendChild(item);
+      const clickItemsFilter = (e) => {
+        selectFilter(e, arrayRepice, category);
+      };
+      item.addEventListener("click", clickItemsFilter);
+    }
   }
 };

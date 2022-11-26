@@ -142,6 +142,7 @@
 
 .dropdown_clicked {
   display: none;
+  justify-content: space-around;
   align-items: center;
   width: 100%;
   padding-left: 30px;
@@ -151,7 +152,7 @@
   background-color: transparent;
   outline: none;
   border: none;
-  width: 50%;
+  width: 80%;
   height: 30px;
   font-size: 18px;
   color: rgba(255, 255, 255, 0.6);
@@ -165,6 +166,7 @@
   height: 50px;
   display: flex;
   justify-content: flex-end;
+  padding-right: 30px;
   align-items: center;
 }
 
@@ -183,6 +185,11 @@
   border-radius: 5px;
   cursor: pointer;
   margin-right: 5px;
+}
+
+.item_disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 #list_repice {

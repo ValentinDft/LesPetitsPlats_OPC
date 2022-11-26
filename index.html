@@ -35,19 +35,19 @@
       <section class="filter">
         <div class="dropdown_ingredients">
           <div class="dropdown_ingredients-select">
-            <div class="dropdown_no_clicked" id="ingredients">
-              <span id="ingredients">Ingrédients</span>
-              <i class="fa-solid fa-chevron-down" id="ingredients"></i>
+            <div class="dropdown_no_clicked" data-parent="ingredients">
+              <span data-parent="ingredients">Ingrédients</span>
+              <i class="fa-solid fa-chevron-down" data-parent="ingredients"></i>
             </div>
-            <div class="dropdown_clicked" id="ingredients">
+            <div class="dropdown_clicked" data-parent="ingredients">
               <input
                 type="text"
                 placeholder="Rechercher un ingredient"
                 class="input-search-filter"
                 id="filter-ingredient"
               />
-              <div class="dropdown_close" id="ingredients">
-                <i class="fa-solid fa-chevron-up" id="ingredients"></i>
+              <div class="dropdown_close" data-parent="ingredients">
+                <i class="fa-solid fa-chevron-up" data-parent="ingredients"></i>
               </div>
             </div>
           </div>
@@ -55,20 +55,23 @@
         </div>
 
         <div class="dropdown_device">
-          <div class="dropdown_device-select dropdown-button" id="device">
-            <div class="dropdown_no_clicked" id="device">
-              <span id="device">appareils</span>
-              <i class="fa-solid fa-chevron-down" id="device"></i>
+          <div
+            class="dropdown_device-select dropdown-button"
+            data-parent="device"
+          >
+            <div class="dropdown_no_clicked" data-parent="device">
+              <span data-parent="device">Appareils</span>
+              <i class="fa-solid fa-chevron-down" data-parent="device"></i>
             </div>
-            <div class="dropdown_clicked" id="device">
+            <div class="dropdown_clicked" data-parent="device">
               <input
                 type="text"
                 placeholder="Rechercher un appareils"
                 class="input-search-filter"
                 id="filter-device"
               />
-              <div class="dropdown_close" id="device">
-                <i class="fa-solid fa-chevron-up" id="device"></i>
+              <div class="dropdown_close" data-parent="device">
+                <i class="fa-solid fa-chevron-up" data-parent="device"></i>
               </div>
             </div>
           </div>
@@ -76,20 +79,23 @@
         </div>
 
         <div class="dropdown_stencil">
-          <div class="dropdown_stencil-select dropdown-button" id="stencil">
-            <div class="dropdown_no_clicked" id="stencil">
-              <span id="stencil">Ustencils</span>
-              <i class="fa-solid fa-chevron-down" id="stencil"></i>
+          <div
+            class="dropdown_stencil-select dropdown-button"
+            data-parent="stencil"
+          >
+            <div class="dropdown_no_clicked" data-parent="stencil">
+              <span data-parent="stencil">Ustensiles</span>
+              <i class="fa-solid fa-chevron-down" data-parent="stencil"></i>
             </div>
-            <div class="dropdown_clicked" id="stencil">
+            <div class="dropdown_clicked" data-parent="stencil">
               <input
                 type="text"
                 placeholder="Rechercher un Ustencils"
                 class="input-search-filter"
                 id="filter-stencils"
               />
-              <div class="dropdown_close" id="stencil">
-                <i class="fa-solid fa-chevron-up" id="stencil"></i>
+              <div class="dropdown_close" data-parent="stencil">
+                <i class="fa-solid fa-chevron-up" data-parent="stencil"></i>
               </div>
             </div>
           </div>
