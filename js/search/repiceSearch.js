@@ -1,5 +1,8 @@
-export const searchRepice = (arrayRepice, inputValue) => {
-  const repiceSection = document.querySelector("#list_repice");
+import { displayTag } from '../tag.js';
+import { arrayTag } from './selectFilter.js';
+
+export const searchRepice = (arrayRepice, inputValue, defaultRepice) => {
+  const repiceSection = document.querySelector('#list_repice');
   let repiceSearch = [];
 
   if (inputValue.length >= 3) {
@@ -12,6 +15,10 @@ export const searchRepice = (arrayRepice, inputValue) => {
 
     return repiceSearch;
   } else if (inputValue.length <= 2) {
-    return arrayRepice;
+    if (arrayTag.length > 0) {
+      displayTag(defaultRepice, true);
+    } else {
+      return arrayRepice;
+    }
   }
 };

@@ -1,7 +1,7 @@
-import { getRepice } from "./api/getRepice.js";
-import { cardRepice } from "./cardRepice.js";
-import { filter } from "./filter.js";
-import { searchRepice } from "./search/repiceSearch.js";
+import { getRepice } from './api/getRepice.js';
+import { cardRepice } from './cardRepice.js';
+import { filter } from './filter.js';
+import { searchRepice } from './search/repiceSearch.js';
 
 let defaultRepice = [];
 
@@ -14,17 +14,17 @@ const fetchData = async () => {
 };
 
 export const displayRepice = (arrayRepice) => {
-  const repiceSection = document.querySelector("#list_repice");
-  const msgErrorRepice = document.querySelector(".msg-error-repice");
+  const repiceSection = document.querySelector('#list_repice');
+  const msgErrorRepice = document.querySelector('.msg-error-repice');
   repiceSection.replaceChildren();
   let arrayIngredients = [];
   let arrayDevice = [];
   let arrayUstencils = [];
 
   if (arrayRepice.length === 0) {
-    msgErrorRepice.style.display = "flex";
+    msgErrorRepice.style.display = 'flex';
   } else {
-    msgErrorRepice.style.display = "none";
+    msgErrorRepice.style.display = 'none';
     for (const repice of arrayRepice) {
       const card = cardRepice(repice);
       repiceSection.appendChild(card);
@@ -52,13 +52,13 @@ let capitalizeString = (str) => {
 };
 
 export const searchBar = (data) => {
-  const inputSearch = document.getElementById("search-bar_input");
+  const inputSearch = document.getElementById('search-bar_input');
   let newArrayRepice = [];
   const inputHandlerRepice = function (e) {
-    newArrayRepice = searchRepice(data, e.target.value);
-    displayRepice(newArrayRepice);
+    newArrayRepice = searchRepice(data, e.target.value, defaultRepice);
+    newArrayRepice && displayRepice(newArrayRepice);
   };
-  inputSearch.addEventListener("input", inputHandlerRepice);
+  inputSearch.addEventListener('input', inputHandlerRepice);
 };
 
 fetchData();
